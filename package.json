@@ -1,0 +1,8 @@
+{
+  "name": "kinte.sh",
+  "version": "1.0.0",
+  "description": "My site and a playground to experiment things.",
+  "repository": "https://kintesh@github.com/kintesh/kinte.sh.git",
+  "author": "Kintesh <i.am@kinte.sh>",
+  "license": "MIT"
+}
