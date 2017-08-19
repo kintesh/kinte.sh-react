@@ -1,11 +1,12 @@
 import React from 'react';
 
-const App = () => {
-    return (
-      <div>
-        <p>Hello, World!</p>
-      </div>
-    );
-};
+import Nav from '../components/Nav';
+
+const App = (props) =>
+  <div>
+    <Nav />
+    {props.children}
+  </div>
+;
 
 export default App;
