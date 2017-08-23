@@ -6,9 +6,11 @@
   "author": "Kintesh <i.am@kinte.sh>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config ./config/webpack.config.js"
+    "start": "node ./server/index.js",
+    "start:debug:express": "DEBUG=express:* node ./server/index.js"
   },
   "dependencies": {
+    "express": "^4.15.4",
     "history": "^4.6.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -27,6 +29,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "react-hot-loader": "next",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2"
   }
 }
