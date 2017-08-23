@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
+import { Route } from 'react-router';
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
@@ -12,12 +13,12 @@ const history = createHistory();
 const store = createStore(history);
 
 const rootEl = document.getElementById('root');
-const render = Component =>
+const render = (Component) =>
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <Routes />
+          <Route render={({location}) => <Component location={location}/>}/>
         </ConnectedRouter>
       </Provider>
     </AppContainer>,
