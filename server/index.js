@@ -3,29 +3,19 @@ import express from 'express';
 
 import Renderer from './Renderer';
 
+const PROD = process.env.NODE_ENV === 'production';
 const app = express();
 
-import webpack  from 'webpack';
-import webpackConfig from '../config/webpack.config.js';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-const compiler = webpack(webpackConfig);
+if (PROD) {
+  app.use('/static', express.static('build'));
+  app.get('*', Renderer);
 
-app.use(webpackDevMiddleware(compiler, {
-  hot: true,
-  publicPath: webpackConfig.output.publicPath,
-  historyApiFallback: true,
-  noInfo: false,
-  stats: {
-    colors: true,
-  },
-}));
+} else {
+  const DevServer = require('./DevServer').default;
+  DevServer(app);
+  app.get('*', Renderer);
 
-app.use(webpackHotMiddleware(compiler, {
-  reload: true
-}));
-
-app.get('*', Renderer);
+}
 
 const server = http.createServer(app);
 

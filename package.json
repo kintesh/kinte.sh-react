@@ -7,7 +7,12 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node ./server/index.js",
-    "start:debug:express": "DEBUG=express:* babel-node ./server/index.js"
+    "start:debug:express": "DEBUG=express:* babel-node ./server/index.js",
+    "start:production": "NODE_ENV=production node ./build/server.js",
+    "prebuild": "rm -rf build",
+    "build": "yarn build:client && yarn build:server",
+    "build:client": "NODE_ENV=production webpack --config ./config/webpack.config.client",
+    "build:server": "NODE_ENV=production webpack --config ./config/webpack.config.server"
   },
   "dependencies": {
     "express": "^4.15.4",

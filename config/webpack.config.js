@@ -13,6 +13,7 @@ module.exports = {
 
   output: {
     filename: '[name].js',
+    chunkFilename: '[name].js',
     path: path.resolve(process.cwd(), 'build'),
     publicPath: '/static/',
   },
@@ -48,6 +49,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       '__CLIENT__': true,
+      'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
 

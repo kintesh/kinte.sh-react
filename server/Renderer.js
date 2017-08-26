@@ -8,7 +8,10 @@ import Routes from '../src/routes';
 
 const Renderer = (req, res) => {
 
+  const PROD = process.env.NODE_ENV === 'production';
+
   global.__CLIENT__ = false;
+  global.window = null;
 
   const history =  createHistory();
   const store = createStore(history);
@@ -33,6 +36,7 @@ const Renderer = (req, res) => {
     <script dangerouslySetInnerHTML={{__html: initialState}} />
     <div id="root" dangerouslySetInnerHTML={{__html: root}}>
     </div>
+    {PROD && <script src="/static/vendor.js" />}
     <script src="/static/app.js" async />
     </body>
     </html>
