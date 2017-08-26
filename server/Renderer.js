@@ -3,6 +3,7 @@ import {renderToString} from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import createHistory from 'history/createMemoryHistory';
 import { Provider } from 'react-redux';
+
 import createStore from '../src/store';
 import Routes from '../src/routes';
 
