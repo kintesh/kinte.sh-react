@@ -6,5 +6,6 @@ My site and a playground to experiment things.
 **Todo**
 * ESLint
 * Jest + Enzyme
-* Webpack config for production
+* SCSS loader
 * Helmet (https://helmetjs.github.io)
+* The site it self ;)

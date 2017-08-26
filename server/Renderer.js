@@ -9,6 +9,8 @@ import Routes from '../src/routes';
 const Renderer = (req, res) => {
 
   const PROD = process.env.NODE_ENV === 'production';
+  const assets = PROD && require('../build/assets.json');
+  const {manifest, app, vendor} = assets || {};
 
   global.__CLIENT__ = false;
   global.window = null;
@@ -37,8 +39,9 @@ const Renderer = (req, res) => {
     <script dangerouslySetInnerHTML={{__html: initialState}} />
     <div id="root" dangerouslySetInnerHTML={{__html: root}}>
     </div>
-    {PROD && <script src="/static/vendor.js" />}
-    <script src="/static/app.js" async />
+    {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
+    {PROD && <script src={vendor.js}/>}
+    <script src={PROD ? app.js : '/static/app.js'} async />
     </body>
     </html>
   );
