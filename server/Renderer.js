@@ -38,8 +38,7 @@ const Renderer = (req, res) => {
     </head>
     <body>
     <script dangerouslySetInnerHTML={{__html: initialState}} />
-    <div id="root" dangerouslySetInnerHTML={{__html: root}}>
-    </div>
+    {PROD ? <div id="root" dangerouslySetInnerHTML={{__html: root}} />  : <div id="root" /> }
     {PROD && <script dangerouslySetInnerHTML={{__html: manifest.text}}/>}
     {PROD && <script src={vendor.js}/>}
     <script src={PROD ? app.js : '/static/app.js'} async />
