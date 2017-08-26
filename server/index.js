@@ -1,13 +1,14 @@
-const http = require('http');
-const express = require('express');
-const path = require('path');
+import http from 'http';
+import express from 'express';
+
+import Renderer from './Renderer';
 
 const app = express();
 
-const webpack  = require('webpack');
-const webpackConfig = require('../config/webpack.config.js');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
+import webpack  from 'webpack';
+import webpackConfig from '../config/webpack.config.js';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
 const compiler = webpack(webpackConfig);
 
 app.use(webpackDevMiddleware(compiler, {
@@ -24,7 +25,7 @@ app.use(webpackHotMiddleware(compiler, {
   reload: true
 }));
 
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, '..', 'index.html')));
+app.get('*', Renderer);
 
 const server = http.createServer(app);
 

@@ -26,4 +26,4 @@ const render = (Component) =>
   );
 
 render(Routes);
-if (module.hot) module.hot.accept('./routes', () => render(Routes));
+if (module.hot) module.hot.accept('./routes', () => render(require('./routes').default));

@@ -3,15 +3,17 @@ const webpack = require('webpack');
 
 module.exports = {
 
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    './src/index.js',
-  ],
+  entry: {
+    app: [
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client',
+      './src/index.js',
+    ],
+  },
 
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    path: path.resolve(process.cwd(), 'build'),
     publicPath: '/static/',
   },
 
@@ -21,8 +23,20 @@ module.exports = {
     rules: [
       {
         test: /\.js?$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ["es2015", {"modules": false}],
+              "stage-2",
+              "react",
+            ],
+            plugins: [
+              "react-hot-loader/babel",
+            ],
+          },
+        },
       },
     ],
   },
@@ -32,6 +46,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      '__CLIENT__': true,
+    }),
   ],
 
 };
