@@ -1,5 +1,5 @@
 import React from 'react';
-import {renderToString} from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import createHistory from 'history/createMemoryHistory';
 import { Provider } from 'react-redux';
