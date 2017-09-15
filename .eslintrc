@@ -13,9 +13,7 @@
   ],
   "rules": {
     "semi": 2,
-    "quotes": [2, "single"],
-    "react/no-unescaped-entities": 0,
-    "react/no-render-return-value": 0
+    "quotes": [2, "single"]
   },
   "env": {
     "browser": true,

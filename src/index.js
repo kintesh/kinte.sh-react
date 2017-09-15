@@ -13,7 +13,7 @@ const history = createHistory();
 const store = createStore(history);
 
 const rootEl = document.getElementById('root');
-const render = (Component) =>
+const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <Provider store={store}>
@@ -24,6 +24,7 @@ const render = (Component) =>
     </AppContainer>,
     rootEl,
   );
+};
 
 render(Routes);
 if (module.hot) module.hot.accept('./routes', () => render(require('./routes').default));
