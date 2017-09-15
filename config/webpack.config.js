@@ -29,12 +29,12 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ["es2015", {"modules": false}],
-              "stage-2",
-              "react",
+              ['es2015', {'modules': false}],
+              'stage-2',
+              'react',
             ],
             plugins: [
-              "react-hot-loader/babel",
+              'react-hot-loader/babel',
             ],
           },
         },
@@ -48,7 +48,6 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      '__CLIENT__': true,
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],

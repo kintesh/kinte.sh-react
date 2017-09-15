@@ -34,7 +34,6 @@ module.exports = {
       sourceMap: true,
     }),
     new webpack.DefinePlugin({
-      '__CLIENT__': true,
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   ],

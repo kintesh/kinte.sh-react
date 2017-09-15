@@ -12,15 +12,15 @@ module.exports = {
       './src/index.js',
     ],
     vendor: [
-      "history",
-      "prop-types",
-      "react",
-      "react-dom",
-      "react-redux",
-      "react-router",
-      "react-router-dom",
-      "react-router-redux",
-      "redux"
+      'history',
+      'prop-types',
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router',
+      'react-router-dom',
+      'react-router-redux',
+      'redux'
     ],
   },
 
@@ -49,7 +49,6 @@ module.exports = {
       sourceMap: true,
     }),
     new webpack.DefinePlugin({
-      '__CLIENT__': true,
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   ],

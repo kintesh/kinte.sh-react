@@ -13,7 +13,6 @@ const Renderer = (req, res) => {
   const assets = PROD && require('../build/assets.json');
   const {manifest, app, vendor} = assets || {};
 
-  global.__CLIENT__ = false;
   global.window = null;
 
   const history =  createHistory();

@@ -21,5 +21,6 @@ const server = http.createServer(app);
 
 server.listen(3000, () => {
   const address = server.address();
+  // eslint-disable-next-line no-console
   console.log(`Listening on: localhost:${address.port}`);
 });

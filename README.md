@@ -4,7 +4,7 @@ My site and a playground to experiment things.
 
 
 **Todo**
-* ESLint
+* ~~ESLint~~
 * Jest + Enzyme
 * SCSS loader
 * Helmet (https://helmetjs.github.io)

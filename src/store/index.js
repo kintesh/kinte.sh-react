@@ -6,7 +6,7 @@ import * as rootReducer from '../reducers';
 export default (history) => {
   const middleware = routerMiddleware(history);
 
-  const composeEnhancers = __CLIENT__ && window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const composeEnhancers = window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(
     combineReducers({
       ...rootReducer,
@@ -28,4 +28,4 @@ export default (history) => {
   }
 
   return store;
-}
+};
