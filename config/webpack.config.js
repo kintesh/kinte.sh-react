@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 
@@ -39,6 +40,17 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            // {loader: 'style-loader'},
+            {loader: 'css-loader'},
+            {loader: 'sass-loader'},
+          ],
+          fallback: 'style-loader',
+        }),
+      },
     ],
   },
 
@@ -49,6 +61,10 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash].css',
+      disable: process.env.NODE_ENV !== 'production',
     }),
   ],
 

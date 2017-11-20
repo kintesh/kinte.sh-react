@@ -9,6 +9,8 @@ import createHistory from 'history/createBrowserHistory';
 import Routes from './routes';
 import createStore from './store';
 
+import './styles/styles.scss';
+
 const history = createHistory();
 const store = createStore(history);
 

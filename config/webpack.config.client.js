@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const AssetsPlugin = require('assets-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const baseConfig = require('./webpack.config');
 
 module.exports = {
@@ -50,6 +51,10 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    new ExtractTextPlugin({
+      filename: '[name].[contenthash].css',
+      disable: process.env.NODE_ENV !== 'production',
     }),
   ],
 

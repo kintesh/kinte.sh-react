@@ -34,6 +34,7 @@ const Renderer = (req, res) => {
       <meta charSet="utf-8" />
       <title>kinte.sh</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {PROD && <link rel="stylesheet" type="text/css" href={app.css} />}
     </head>
     <body>
     <script dangerouslySetInnerHTML={{__html: initialState}} />
