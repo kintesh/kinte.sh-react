@@ -53,7 +53,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     new ExtractTextPlugin({
-      filename: '[name].[contenthash].css',
+      filename: '[name]_[hash].css',
       disable: process.env.NODE_ENV !== 'production',
     }),
   ],

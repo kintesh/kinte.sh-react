@@ -4,10 +4,10 @@ const fs = require('fs');
 
 const nodeModules = {};
 fs.readdirSync('node_modules')
-  .filter(function(x) {
+  .filter((x) => {
     return ['.bin'].indexOf(x) === -1;
   })
-  .forEach(function(mod) {
+  .forEach((mod) => {
     nodeModules[mod] = 'commonjs ' + mod;
   });
 

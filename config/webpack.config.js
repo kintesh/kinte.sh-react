@@ -44,7 +44,6 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           use: [
-            // {loader: 'style-loader'},
             {loader: 'css-loader'},
             {loader: 'sass-loader'},
           ],
@@ -63,7 +62,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
     new ExtractTextPlugin({
-      filename: '[name].[contenthash].css',
+      filename: '[name].css',
       disable: process.env.NODE_ENV !== 'production',
     }),
   ],
