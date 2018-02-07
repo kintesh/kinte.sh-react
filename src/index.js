@@ -16,7 +16,7 @@ const store = createStore(history);
 
 const rootEl = document.getElementById('root');
 const render = (Component) => {
-  ReactDOM.render(
+  ReactDOM.hydrate(
     <AppContainer>
       <Provider store={store}>
         <ConnectedRouter history={history}>
