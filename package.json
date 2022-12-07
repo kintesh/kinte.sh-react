@@ -18,7 +18,7 @@
     "test:watch": "jest --watchAll"
   },
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "history": "^4.7.2",
     "nord": "^0.2.1",
     "normalize.css": "^7.0.0",
